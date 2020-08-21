@@ -1,0 +1,9 @@
+Trabajo Práctico 1
+Realizar una calculadora con HTML y javascript que realice
+suma​, ​resta​, ​multiplicación ​ y división​. 
+
+Luego deberá mostrar el resultado utilizando los diferentes métodos vistos
+en clase(alert(), log(), etc...).
+
+Deberá crear el formulario para recibir el input y los archivos JS 
+que crea necesario

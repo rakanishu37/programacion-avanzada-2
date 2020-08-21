@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./calculator.js"></script>
+    <title>Calculadora</title>
+</head>
+<body>
+    <form onsubmit="calculator()">
+        Primer Numero
+        <input type="number" name="firstNumber" id="firstNumber">
+        <br>
+        Segundo Numero
+        <input type="number" name="secondNumber" id="secondNumber">
+        <button type="submit"></button>
+    </form>
+    <script>
+        //una especie de controlador o orquestador vvs
+        document.querySelector('form').addEventListener('submit', event => {
+            event.preventDefault();
+            calculator(document.getElementById('firstNumber'))
+        });
+    </script>
+</body>
+</html>
