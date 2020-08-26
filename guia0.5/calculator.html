@@ -22,9 +22,16 @@
       <input type="number" name="secondNumber" id="secondNumber" />
       <button type="submit">submit</button>
     </form>
-
     <script>
-      //una especie de controlador o orquestador vvs
+      //una especie de controlador u orquestador vvs
+      const createSpan = (result) => {
+        const span = document.createElement("span");
+        span.appendChild(document.createTextNode(`Result : ${result}`))
+        document.body.appendChild(span);
+      };
+
+      document.createElement("p").appendChild(document.createTextNode("asdasdsadsa"))
+
       document.querySelector("form").addEventListener("submit", (event) => {
         event.preventDefault();
         const result = calculator(
@@ -32,11 +39,9 @@
           parseInt(document.getElementById("firstNumber").value, 10),
           parseInt(document.getElementById("secondNumber").value, 10)
         );
+        createSpan(result);
       });
-
-      document
-        .createElement("span")
-        .appendChild(document.createTextNode(`Result : ${result}`));
+      
     </script>
   </body>
 </html>
