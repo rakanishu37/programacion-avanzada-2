@@ -29,9 +29,7 @@
         span.appendChild(document.createTextNode(`Result : ${result}`))
         document.body.appendChild(span);
       };
-
-      document.createElement("p").appendChild(document.createTextNode("asdasdsadsa"))
-
+      
       document.querySelector("form").addEventListener("submit", (event) => {
         event.preventDefault();
         const result = calculator(
