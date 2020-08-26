@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wishlist</title>
+  </head>
+  <body>
+    <ul id="productList"></ul>
+
+    <ol id="wishList"></ol>
+    <script>
+      const products = [
+        { id: "1", name: "Product 1" },
+        { id: "2", name: "Product 2" },
+        { id: "3", name: "Product 3" },
+      ];
+      let productInWishList = [];
+
+      // Guardo la lista de productos en una const para usarla en el forEach que sigue
+      const productList = document.querySelector("#productList");
+      
+      const addProductsToWishLish = ({ id, name }) => {
+        const wishList = document.querySelector("#wishList");
+        productInWishList = [...productInWishList, { id, name }];
+
+        const li = document.createElement("li");
+        const span = document.createElement("span");
+        const removeButton = document.createElement("button");
+
+        span.textContent = name;
+
+        removeButton.textContent = "X";
+        removeButton.addEventListener("click", () => {
+          removeButton.parentElement.remove();
+          
+          const index = productInWishList.findIndex(
+            (product) => product.id === id
+          );
+
+          productInWishList =
+            index !== -1
+              ? [
+                  ...productInWishList.slice(0, index),
+                  ...productInWishList.slice(index + 1),
+                ]
+              : productInWishList;
+        });
+
+        li.appendChild(span);
+        li.appendChild(removeButton);
+        wishList.appendChild(li);
+      };
+      
+      products.forEach(({ id, name }) => {
+        // Creo un li desde JS
+        const li = document.createElement("li");
+        // Creo un span desde JS
+        const span = document.createElement("span");
+        // Creo un button desde JS
+        const button = document.createElement("button");
+
+        span.textContent = name;
+        
+        button.textContent = "Agregar a lista de deseados";
+
+        button.addEventListener("click", () => {
+          const isProductInWishlist = productInWishList.some(
+            (wishListProduct) => wishListProduct.id === id
+          );
+          if (!isProductInWishlist) {
+            addProductsToWishLish({ id, name });
+          } else {
+            window.alert(`Product ${id} is already added in wishlist`);
+          }
+        });
+
+        // Meto el span adentro del li
+        li.appendChild(span);
+        // Meto el button adentro del li
+        li.appendChild(button);
+        // Meto el li adentro del productList (ul)
+        productList.appendChild(li);
+      });
+
+
+    </script>
+  </body>
+</html>
