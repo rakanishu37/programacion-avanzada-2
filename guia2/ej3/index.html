@@ -23,14 +23,18 @@
   <script>
     function insertRow() {
       const myTable = (document.querySelector(".myTable"));
-      const tr =  document.createElement("tr");
+      //const tr =  document.createElement("tr");
+      const tr =  myTable.insertRow();
       tr.innerText = "Row";
+      //myTable.appendChild(tr);
     }
 
-    const myTable = (document.querySelector(".myTable"));
-    const tr = document.createElement("tr");
-    tr.innerText = "Row 1";
-    myTable.appendChild(tr);
+    function deleteRow(){
+      const myTable = (document.querySelector(".myTable"));
+      if(myTable.rows.length >1){
+        myTable.deleteRow(-1);
+      }
+    }
   </script>
   </body>
 </html>
